@@ -16,7 +16,6 @@ package br.ufba.poo.lista2;
  */
 public class Aluno {
 
-
     private String matricula;
     private String nome;
 
@@ -37,12 +36,22 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public boolean equals(Aluno outro) {
-
-        if (this.matricula.equals(outro.matricula)) {          
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
-        } else {
+        }
+
+        if (obj == null) {
             return false;
         }
+
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Aluno outro = (Aluno) obj;
+
+        return this.matricula.equals(outro.matricula);
     }
 }
